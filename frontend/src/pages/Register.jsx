@@ -4,16 +4,16 @@ import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 function Register() {
-  const [data, setData] = useState({ name: "", email: "", password: "" });
+  const [data, setData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
+  const register = async () => {
     try {
       await API.post("/register", data);
       alert("Registered successfully");
       navigate("/");
     } catch (err) {
-      alert("Register failed");
+      alert("Error registering");
     }
   };
 
@@ -22,25 +22,17 @@ function Register() {
       <h2>Register</h2>
 
       <input
-        placeholder="Name"
-        value={data.name}
-        onChange={(e) => setData({ ...data, name: e.target.value })}
-      />
-
-      <input
         placeholder="Email"
-        value={data.email}
         onChange={(e) => setData({ ...data, email: e.target.value })}
       />
 
       <input
-        type="password"
         placeholder="Password"
-        value={data.password}
+        type="password"
         onChange={(e) => setData({ ...data, password: e.target.value })}
       />
 
-      <button onClick={handleRegister}>Register</button>
+      <button onClick={register}>Register</button>
     </div>
   );
 }

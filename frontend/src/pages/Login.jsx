@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 function Login() {
-  const [data, setData] = useState({ email: "", password: "" });
+  const [data, setData] = useState({
+    email: "",
+    password: ""
+  });
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -22,6 +26,7 @@ function Login() {
       <h2>Login</h2>
 
       <input
+        type="email"
         placeholder="Email"
         value={data.email}
         onChange={(e) => setData({ ...data, email: e.target.value })}
@@ -35,6 +40,17 @@ function Login() {
       />
 
       <button onClick={handleLogin}>Login</button>
+
+      <p
+        onClick={() => navigate("/register")}
+        style={{
+          cursor: "pointer",
+          marginTop: "12px",
+          color: "#4facfe"
+        }}
+      >
+        Don’t have an account? Register
+      </p>
     </div>
   );
 }
