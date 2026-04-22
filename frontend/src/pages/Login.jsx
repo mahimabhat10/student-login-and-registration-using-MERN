@@ -46,7 +46,8 @@ function Login() {
         style={{
           cursor: "pointer",
           marginTop: "12px",
-          color: "#4facfe"
+          color: "#4facfe",
+          textAlign: "center"
         }}
       >
         Don’t have an account? Register
